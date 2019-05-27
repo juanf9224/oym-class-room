@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {IUser, UserModel} from '../shared/model/user.model';
+import {UserService} from '../shared/services/user.service';
 
 @Component({
   selector: 'app-home',
@@ -6,10 +8,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  user: IUser;
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
+    this.user = this.userService.getUser() ? this.userService.getUser() : new UserModel();
   }
 
 }

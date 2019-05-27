@@ -18,7 +18,7 @@ import {
   MatDatepickerModule,
   MatNativeDateModule,
   MatProgressBarModule,
-  MatSidenavModule
+  MatSidenavModule,
 } from '@angular/material';
 
 import { ScrollingModule,

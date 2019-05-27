@@ -4,7 +4,7 @@ export interface IStudent {
   id?: number;
   name?: string;
   lastName?: string;
-  studentId?: string;
+  studentId?: string | number;
   courses?: ICourse[];
 }
 

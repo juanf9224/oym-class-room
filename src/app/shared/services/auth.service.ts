@@ -1,15 +1,20 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable, of} from 'rxjs';
+import { ReplaySubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  authSubscription: ReplaySubject<boolean> = new ReplaySubject<boolean>(1);
 
   constructor(private http: HttpClient) {}
 
-  public isAuthenticated(): Observable<any> {
-    return of(localStorage.getItem('isAuthenticated'));
+  public isAuthenticated(): boolean {
+    return localStorage.getItem('isAuthenticated').includes('true');
+  }
+
+  public subscribeToAuth(): ReplaySubject<boolean> {
+    return this.authSubscription;
   }
 }

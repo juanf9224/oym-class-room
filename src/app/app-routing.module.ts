@@ -4,12 +4,17 @@ import {HomeComponent} from './home/home.component';
 import {AuthGuardService} from './shared/services/guard/auth-guard.service';
 import {LoginComponent} from './login/login.component';
 import {EnrollmentComponent} from './enrollment/enrollment.component';
+import {OktaCallbackComponent} from '@okta/okta-angular';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
     canActivate: [AuthGuardService]
+  },
+  {
+    path: 'implicit/callback',
+    component: OktaCallbackComponent
   },
   {
     path: 'login',
