@@ -11,7 +11,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   public isAuthenticated(): boolean {
-    return localStorage.getItem('isAuthenticated').includes('true');
+    return localStorage.getItem('isAuthenticated') ? localStorage.getItem('isAuthenticated').includes('true') : false;
   }
 
   public subscribeToAuth(): ReplaySubject<boolean> {

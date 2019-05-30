@@ -3,17 +3,25 @@ export interface ICourse {
   name?: string;
   teacher?: string;
   credits?: number | string;
-  preRequisite?: number;
+  preRequisite?: string;
   active?: boolean;
+  schedule?: ICourseSchedule[];
 }
 
-export class CourseModel implements ICourse{
+export interface ICourseSchedule {
+  day?: string;
+  from?: string;
+  to?: string;
+}
+
+export class CourseModel implements ICourse {
   constructor(
     public id?: number,
     public name?: string,
     public teacher?: string,
     public credits?: number | string,
-    public preRequisite?: number,
-    public active?: boolean
+    public preRequisite?: string,
+    public active?: boolean,
+    public shcedule?: ICourseSchedule
   ) {}
 }

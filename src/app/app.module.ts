@@ -9,6 +9,9 @@ import { HomeComponent } from './home/home.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
 import {LoginComponent} from './login/login.component';
 import {OktaAuthModule} from '@okta/okta-angular';
+import { CourseSelectionComponent } from './course-selection/course-selection.component';
+import { CourseListComponent } from './course-list/course-list.component';
+import { CourseScheduleComponent } from './course-schedule/course-schedule.component';
 
 const config = {
   issuer: 'https://dev-248399.okta.com/oauth2/default',
@@ -22,6 +25,9 @@ const config = {
     LoginComponent,
     HomeComponent,
     EnrollmentComponent,
+    CourseSelectionComponent,
+    CourseListComponent,
+    CourseScheduleComponent,
   ],
   imports: [
     BrowserModule,

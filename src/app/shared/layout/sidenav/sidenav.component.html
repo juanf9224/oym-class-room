@@ -1,9 +1,9 @@
 <mat-sidenav-container class="sidenav-container" [autosize]="true">
   <mat-sidenav #sidenav mode="side" [opened]="sidenavOpen">
     <p>Menu</p>
-    <p *appIsAuthenticated><a routerLink="['home']"><button mat-flat-button><mat-icon>home</mat-icon> Inicio</button></a></p>
-    <p *appIsAuthenticated><a routerLink="['home']"><button mat-flat-button><mat-icon>subscriptions</mat-icon> Inscripcion</button></a></p>
-    <p *appIsAuthenticated><a routerLink="['home']"><button mat-flat-button><mat-icon>list</mat-icon> Seleccionar Materias</button></a></p>
+    <p *appIsAuthenticated><a [routerLink]="['/home']"><button mat-flat-button><mat-icon>home</mat-icon> Inicio</button></a></p>
+    <p *appIsAuthenticated><a [routerLink]="['/enrollment']"><button mat-flat-button><mat-icon>subscriptions</mat-icon> Inscripcion</button></a></p>
+    <p *appIsAuthenticated><a [routerLink]="['/course-selection']"><button mat-flat-button><mat-icon>list</mat-icon> Seleccionar Materias</button></a></p>
     <p *appIsAuthenticated><button mat-flat-button (click)="logout()"><mat-icon>logout</mat-icon> Cerrar sesión</button></p>
   </mat-sidenav>
   <mat-sidenav-content class="sidenav-content-styles">

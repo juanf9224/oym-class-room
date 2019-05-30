@@ -6,14 +6,16 @@ export interface IStudent {
   lastName?: string;
   studentId?: string | number;
   courses?: ICourse[];
+  gradeIndex?: number;
 }
 
-export class StudentModel implements IStudent{
+export class StudentModel implements IStudent {
   constructor(
     public id?: number,
     public name?: string,
     public lastName?: string,
     public studentId?: string | number,
-    public courses?: ICourse[]
+    public courses?: ICourse[],
+    public gradeIndex?: number
   ) {}
 }

@@ -1,6 +1,5 @@
 import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {LoginService} from '../../services/login.service';
-import {AuthGuardService} from '../../services/guard/auth-guard.service';
 import {AuthService} from '../../services/auth.service';
 import {Router} from '@angular/router';
 import {ReplaySubject} from 'rxjs';

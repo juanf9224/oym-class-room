@@ -5,6 +5,7 @@ import {AuthGuardService} from './shared/services/guard/auth-guard.service';
 import {LoginComponent} from './login/login.component';
 import {EnrollmentComponent} from './enrollment/enrollment.component';
 import {OktaCallbackComponent} from '@okta/okta-angular';
+import {CourseSelectionComponent} from './course-selection/course-selection.component';
 
 const routes: Routes = [
   {
@@ -25,7 +26,15 @@ const routes: Routes = [
     component: EnrollmentComponent,
     canActivate: [AuthGuardService]
   },
-  { path: '**', redirectTo: '' }
+  {
+    path: 'course-selection',
+    component: CourseSelectionComponent,
+    canActivate: [AuthGuardService]
+  },
+  { path: '**',
+    component: HomeComponent,
+    canActivate: [AuthGuardService]
+  }
 ];
 
 @NgModule({

@@ -7,12 +7,14 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {CustomHttpInterceptor} from './interceptor/custom-http-interceptor';
 import {SideNavComponent} from './layout/sidenav/sidenav.component';
 import { IsAuthenticatedDirective } from './directives/auth/is-authenticated.directive';
+import {RouterModule} from '@angular/router';
 
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    RouterModule,
     CustomMaterialModule,
     HttpClientModule
   ],
