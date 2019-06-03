@@ -17,6 +17,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 })
 export class CourseListComponent implements OnInit {
   @Input() courses: ICourse[];
+  @Input() expandable: boolean;
   dataSource: MatTableDataSource<ICourse>;
   columnsToDisplay = [
     {key: 'name', value: 'Materia'},
