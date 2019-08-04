@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ICourse} from '../shared/model/course.model';
+import {ICourse} from '../../shared/model/course.model';
 import {MatTableDataSource} from '@angular/material';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 
@@ -36,6 +36,7 @@ export class CourseListComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    console.log('Courses: ', this.courses);
     this.dataSource = new MatTableDataSource<ICourse>(this.courses);
   }
 

@@ -5,7 +5,7 @@ import {AuthGuardService} from './shared/services/guard/auth-guard.service';
 import {LoginComponent} from './login/login.component';
 import {EnrollmentComponent} from './enrollment/enrollment.component';
 import {OktaCallbackComponent} from '@okta/okta-angular';
-import {CourseSelectionComponent} from './course-selection/course-selection.component';
+import {CourseSelectionComponent} from './course/course-selection/course-selection.component';
 
 const routes: Routes = [
   {

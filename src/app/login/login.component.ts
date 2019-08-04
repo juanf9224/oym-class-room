@@ -1,7 +1,7 @@
 import {Component, HostListener, OnDestroy, OnInit} from '@angular/core';
 import {IUser} from '../shared/model/user.model';
 import {LoginService} from '../shared/services/login.service';
-import {takeUntil} from 'rxjs/operators';
+import {switchMap, takeUntil} from 'rxjs/operators';
 import {ReplaySubject} from 'rxjs';
 import {Router} from '@angular/router';
 import {UserService} from '../shared/services/user.service';
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit, OnDestroy {
     private loginService: LoginService,
     private authService: AuthService,
     private router: Router,
-    private userSrvice: UserService
+    private userService: UserService
   ) { }
 
   ngOnInit() {
@@ -29,15 +29,20 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   public login() {
     this.loginService.login(this.user.username, this.user.password)
-      .pipe(takeUntil(this.destroySubscriptions$))
+      .pipe(
+        takeUntil(this.destroySubscriptions$))
       .subscribe(res => {
         console.log('logged in successfully! - ', res);
-        this.userSrvice.setUser(this.user);
-        this.authService.subscribeToAuth().next(true);
-        this.router.navigate(['home']);
+        this.getUserDetails(res);
         }, err => {
         console.error('Could not login', err);
         });
+  }
+
+  private getUserDetails(res: any): void {
+    this.userService.setUser(this.user);
+    this.authService.subscribeToAuth().next(true);
+    this.router.navigate(['home']);
   }
 
   @HostListener('window:beforeunload')

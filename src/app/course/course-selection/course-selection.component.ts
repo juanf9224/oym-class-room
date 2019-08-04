@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { CourseService } from '../shared/services/course.service';
-import { ICourse } from '../shared/model/course.model';
-import { Observable } from 'rxjs';
+
+import {ICourse} from '../../shared/model/course.model';
+import {CourseService} from '../../shared/services/course.service';
 
 @Component({
   selector: 'app-course-selection',
@@ -10,7 +10,7 @@ import { Observable } from 'rxjs';
 })
 export class CourseSelectionComponent implements OnInit {
 
-  courses$: Observable<ICourse[]>;
+  courses: ICourse[];
 
   constructor(
     private courseService: CourseService
@@ -20,9 +20,9 @@ export class CourseSelectionComponent implements OnInit {
     this.loadCourses();
   }
 
-  async loadCourses() {
-    this.courses$ = await this.courseService.fetchAll();
-    console.log(this.courses$);
+  loadCourses() {
+    this.courseService.fetchAll().subscribe( res => this.courses = res.body);
+    console.log(this.courses);
   }
 
 }
