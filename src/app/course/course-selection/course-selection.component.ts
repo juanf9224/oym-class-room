@@ -21,8 +21,14 @@ export class CourseSelectionComponent implements OnInit {
   }
 
   loadCourses() {
-    this.courseService.fetchAll().subscribe( res => this.courses = res.body);
+    this.courseService
+      .fetchAll()
+      .subscribe( res => this.courses = res.body);
     console.log(this.courses);
+  }
+
+  selectedCourse(id: number | string): void {
+    console.log('selected course: ', id);
   }
 
 }

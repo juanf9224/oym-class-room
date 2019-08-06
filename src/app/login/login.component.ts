@@ -33,7 +33,12 @@ export class LoginComponent implements OnInit, OnDestroy {
         takeUntil(this.destroySubscriptions$))
       .subscribe(res => {
         console.log('logged in successfully! - ', res);
-        this.getUserDetails(res);
+        this.getUserDetails(res.body._embedded.user);
+        this.storeSessionData({
+          userId: res.body._embedded.user.id,
+          expiresAt: res.body.expiresAt,
+          sessionToken: res.body.sessionToken
+        });
         }, err => {
         console.error('Could not login', err);
         });
@@ -42,7 +47,14 @@ export class LoginComponent implements OnInit, OnDestroy {
   private getUserDetails(res: any): void {
     this.userService.setUser(this.user);
     this.authService.subscribeToAuth().next(true);
-    this.router.navigate(['home']);
+  }
+
+  private storeSessionData(session: any): void {
+    this.loginService.storeSession(session).subscribe( () => {
+        this.authService.subscribeToAuth().next(true);
+        this.router.navigate(['home']);
+      }
+    );
   }
 
   @HostListener('window:beforeunload')
