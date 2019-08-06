@@ -1,6 +1,6 @@
-import {Directive, ElementRef, HostListener, Input, OnDestroy, OnInit, Renderer2, TemplateRef, ViewContainerRef} from '@angular/core';
+import {Directive, HostListener, OnDestroy, OnInit, TemplateRef, ViewContainerRef} from '@angular/core';
 import {AuthService} from '../../services/auth.service';
-import {skip, takeUntil} from 'rxjs/operators';
+import {takeUntil} from 'rxjs/operators';
 import {ReplaySubject} from 'rxjs';
 
 @Directive({
@@ -27,11 +27,11 @@ export class IsAuthenticatedDirective implements OnInit, OnDestroy {
   }
 
   shouldRender() {
-    console.log('klk');
     if (this.authService.isAuthenticated()) {
       console.log('should appear directive');
       this.viewContainerRef.createEmbeddedView(this.templateRef);
     } else {
+      console.log('Not auth');
       this.viewContainerRef.clear();
     }
   }
