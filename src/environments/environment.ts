@@ -5,7 +5,9 @@
 export const environment = {
   production: false,
   baseApiUrl: 'localhost:5000',
-  baseRef: '/'
+  baseRef: '/',
+  oktaApiDomainUrl: 'https://dev-248399.okta.com',
+  oktaApiAuthBearer: 'SSWS 00p42BF7R9qDbbe6hpDvU15Ip6e62FD7_EaMlUMhSy'
 };
 
 /*

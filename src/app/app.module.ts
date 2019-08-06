@@ -9,12 +9,12 @@ import { HomeComponent } from './home/home.component';
 import { EnrollmentComponent } from './enrollment/enrollment.component';
 import {LoginComponent} from './login/login.component';
 import {OktaAuthModule} from '@okta/okta-angular';
-import { CourseSelectionComponent } from './course-selection/course-selection.component';
-import { CourseListComponent } from './course-list/course-list.component';
-import { CourseScheduleComponent } from './course-schedule/course-schedule.component';
+import { CourseSelectionComponent } from './course/course-selection/course-selection.component';
+import { CourseListComponent } from './course/course-list/course-list.component';
+import { CourseScheduleComponent } from './course/course-schedule/course-schedule.component';
 
 const config = {
-  issuer: 'https://dev-248399.okta.com/oauth2/default',
+  issuer: 'https://dev-248399.okta.com/',
   redirectUri: 'http://localhost:4200/implicit/callback',
   clientId: '0oan3clhxRbcw71xI356'
 };

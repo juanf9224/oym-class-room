@@ -11,7 +11,9 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   public isAuthenticated(): boolean {
-    return localStorage.getItem('isAuthenticated') ? localStorage.getItem('isAuthenticated').includes('true') : false;
+    console.log('session data: ', localStorage.getItem('sessionToken'));
+    return localStorage.getItem('sessionToken') && localStorage.getItem('sessionToken').length > 0;
+    // return localStorage.getItem('isAuthenticated') ? localStorage.getItem('isAuthenticated').includes('true') : false;
   }
 
   public subscribeToAuth(): ReplaySubject<boolean> {

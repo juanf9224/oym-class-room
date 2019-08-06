@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ICourseSchedule} from '../shared/model/course.model';
 import {MatTableDataSource} from '@angular/material';
+
+import {ICourseSchedule} from '../../shared/model/course.model';
 
 @Component({
   selector: 'app-course-schedule',
